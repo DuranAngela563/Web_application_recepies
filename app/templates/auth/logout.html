@@ -1,0 +1,9 @@
+{%extends 'base.html' %}
+{% block content %}
+<div style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px;">
+    <h2>Do you want to log out?</h2>
+    <form action="{{ url_for('auth.logout_post') }}" method="post">
+        <div><input type="submit" value="Log out"/></div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/sign-in.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/user.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/recipe_creation.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/mainpage.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/navbar.css') }}">  
+    
+</head>
+
+<body>
+<section class="bg-image"
+  style="background-image: url('static/signup.jpg');background-attachment: fixed;">
+  <div class="mask d-flex align-items-center gradient-custom-3">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Sing up</h2>
+
+              <form action="{{ url_for('auth.signup_post') }}" method="post">
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name = 'username'/>
+                  <label class="form-label">Your Username</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" name = 'email'/>
+                  <label class="form-label">Your Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" name='password'/>
+                  <label class="form-label">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" name='password_repeat' />
+                  <label class="form-label">Repeat your password</label>
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{{url_for('auth.login')}}"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0"> <a href="{{url_for('main.index')}}" class="fw-bold text-body">Home</a></p>
+                {% with messages = get_flashed_messages() %}
+                  {% for message in messages %}
+                      <div class="notification">{{ message }}</div>
+                  {% endfor %}
+                  
+                {% endwith %}
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
